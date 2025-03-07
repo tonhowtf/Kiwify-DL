@@ -11,8 +11,8 @@ def stream_links(data):
     for item in data:
       stream_links(item)
 
-def debug(json):
-  with open(json, 'r', encoding='utf-8') as file:
+def debug(file):
+  with open(file, 'r', encoding='utf-8') as file:
     data = json.load(file)
     stream_links(data)
 
