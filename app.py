@@ -7,4 +7,10 @@ def stream_links(data):
         print(value)
       else:
         stream_links(value)
+  elif isinstance(data, list):
+    for item in data:
+      stream_links(item)
+
+
+
 
