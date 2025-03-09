@@ -1,5 +1,6 @@
 import json
 import os
+import requests
 
 
 def json(data):
@@ -13,7 +14,14 @@ def dir_creation(module_order, module_name, lesson_order, lesson_title):
   os.makedirs(full_path, exist_ok=True)
   return full_path
 
-
+def download_file(url, path):
+  r = requests.get(url, stream=True)
+  if r.status_code == 200:
+    with open(path, 'wb') as f:
+      for chunk in r.iter_content(chunk_size=8192):
+        f.write(chunk)
+      else:
+        print(f"Não foi possivel baixar: {url}")
 
 
 
