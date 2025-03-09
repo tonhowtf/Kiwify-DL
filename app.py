@@ -19,7 +19,8 @@ def download_file(url, path):
   if r.status_code == 200:
     with open(path, 'wb') as f:
       for chunk in r.iter_content(chunk_size=8192):
-        f.write(chunk)
+        if chunk:
+          f.write(chunk)
       else:
         print(f"Não foi possivel baixar: {url}")
 
