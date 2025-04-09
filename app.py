@@ -23,7 +23,7 @@ def download_file(url, path):
           f.write(chunk)
       else:
         print(f"Não foi possivel baixar: {url}")
-        .
+        
 
 
   
